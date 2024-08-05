@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date-Picker</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<style>
+    body {
+        background: #f8f9fa;
+    }
+    .container {
+        margin-top: 50px;
+    }
+    .form-container {
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .form-label {
+        font-weight: bold;
+        color: #495057;
+    }
+    .btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+        transition: background-color 0.3s, border-color 0.3s;
+    }
+    .btn-success:hover {
+        background-color: #218838;
+        border-color: #1e7e34;
+    }
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+    .input-icon {
+        position: relative;
+    }
+    .input-icon i {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+        color: #aaa;
+    }
+    .input-group {
+        flex-wrap: nowrap;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-10">
+                <div class="form-container">
+                    <form name="filter_form" role="form" method="post">
+                        <div class="form-group">
+                            <label for="searchvalue" class="form-label">Search Records</label>
+                            <input type="text" class="form-control" id="searchvalue" name="searchvalue" placeholder="Enter search term">
+                        </div>
+                        <div class="form-group">
+                            <label for="blog_view_status" class="form-label">Select Your Blog Status</label>
+                            <select id="blog_view_status" name="blog_view_status" class="form-select">
+                                <option value="" selected>All</option>
+                                <option value="enable">Enable</option>
+                                <option value="disable">Disable</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="date" class="form-label">Date to Filter</label>
+                            <div class="input-icon">
+                                <input type="text" id="config-demo" class="form-control" placeholder="Select date range">
+                                <i class="fa fa-calendar"></i>
+                                <input type="hidden" id="add_products_start_date" value="">
+                                <input type="hidden" id="add_products_end_date" value="">
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <input type="button" class="btn btn-success" id="da-fi" value="Filters" onclick="BlogFilter()">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</html>
